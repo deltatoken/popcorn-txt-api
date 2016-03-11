@@ -10,7 +10,9 @@ module.exports = function(addr) {
     var d = Q.defer();
     dns.resolveTxt(addr, function (err, addresses) {
         if (err) return d.reject(err);
-
+        if (!addresses || !addresses.length
+            || !addresses[0] || !addresses[0].length)
+            return d.reject (addresses)
         return d.resolve(addresses[0][0]);
     });
 
