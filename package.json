@@ -1,0 +1,29 @@
+{
+  "name": "popcorn-txt-api",
+  "version": "0.0.1",
+  "description": "extract popcorn APIs from TXT records",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hackhackhack/popcorn-txt-api.git"
+  },
+  "keywords": [
+    "txt",
+    "dns",
+    "hack",
+    "api",
+    "popcorn"
+  ],
+  "author": "Hackish of Hackathon <hack@nomail.com>",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/hackhackhack/popcorn-txt-api/issues"
+  },
+  "homepage": "https://github.com/hackhackhack/popcorn-txt-api#readme",
+  "dependencies": {
+    "q": "^1.4.1"
+  }
+}
