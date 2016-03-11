@@ -9,7 +9,9 @@ module.exports = function(addr) {
         return Q(addr);
 
     debug ('processing', addr);
-    addr = addr.replace(/^dnstxt:\/\//, '').replace(/\/.*/, '');
+    addr = addr.replace(/^dnstxt:\/\//, '')
+    var end = addr.split('/').splice(1).join('/');
+    addr = addr.replace(/\/.*/, '');
 
     var d = Q.defer();
     dns.resolveTxt(addr, function (err, addresses) {
@@ -24,8 +26,12 @@ module.exports = function(addr) {
             return d.reject (addresses)
         }
 
-        debug ('resolving', addresses[0][0]);
-        return d.resolve(addresses[0][0]);
+        var ret = addresses[0][0]
+        if (end)
+            ret += '/' + end;
+
+        debug ('resolving', ret);
+        return d.resolve(ret);
     });
 
     return d.promise;

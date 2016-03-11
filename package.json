@@ -1,6 +1,6 @@
 {
   "name": "popcorn-txt-api",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "extract popcorn APIs from TXT records",
   "main": "index.js",
   "scripts": {
