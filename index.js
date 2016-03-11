@@ -9,7 +9,7 @@ module.exports = function(addr) {
         return Q(addr);
 
     debug ('processing', addr);
-    addr.replace(/^dnstxt:\/\//, '');
+    addr = addr.replace(/^dnstxt:\/\//, '').replace(/\/.*/, '');
 
     var d = Q.defer();
     dns.resolveTxt(addr, function (err, addresses) {
