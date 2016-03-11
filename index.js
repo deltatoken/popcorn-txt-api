@@ -13,10 +13,18 @@ module.exports = function(addr) {
 
     var d = Q.defer();
     dns.resolveTxt(addr, function (err, addresses) {
-        if (err) return d.reject(err);
+        if (err) {
+            debug ('rejecting error', err);
+            return d.reject(err);
+        }
         if (!addresses || !addresses.length
-            || !addresses[0] || !addresses[0].length)
+            || !addresses[0] || !addresses[0].length) {
+            debug('rejecting, addresses is malformed', addresses)
+
             return d.reject (addresses)
+        }
+
+        debug ('resolving', addresses[0][0]);
         return d.resolve(addresses[0][0]);
     });
 
